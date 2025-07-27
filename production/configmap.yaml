@@ -4,5 +4,5 @@ metadata:
   name: immich-env
   namespace: immich
 data:
-  DB_HOST: immich-postgres
-  REDIS_HOST: immich-redis
+  DB_URL: "postgres://postgres:postgres@immich-postgres:5432/immich"
+  REDIS_HOST: "immich-redis"
