@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: immich-machine-learning
-        image: ghcr.io/immich-app/immich-machine-learning:release
+        image: ghcr.io/immich-app/immich-machine-learning:commit-e983e8e1d3422c13343398b842293535f1b699eb-rocm
         volumeMounts:
         - name: model-cache
           mountPath: /cache
