@@ -43,6 +43,8 @@ spec:
         envFrom:
         - configMapRef:
             name: immich-env
+        - secretRef:
+            name: db
       volumes:
       - name: upload
         persistentVolumeClaim:
