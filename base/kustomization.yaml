@@ -1,0 +1,5 @@
+resources:
+  - immich-machine-learning
+  - immich-server
+  - postgres
+  - redis

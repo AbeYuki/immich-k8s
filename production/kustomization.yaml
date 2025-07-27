@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: nextcloud
 
 resources:
+  - ../base
   - avp-sercret.yaml
   - configmap.yaml
 
