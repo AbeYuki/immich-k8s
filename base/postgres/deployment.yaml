@@ -47,7 +47,8 @@ metadata:
   name: db-data-pvc
   namespace: immich
 spec:
+  storageClassName: nfs-g9-enp4s0-rwo
   accessModes: ["ReadWriteOnce"]
   resources:
     requests:
-      storage: 10Gi
+      storage: 1Gi

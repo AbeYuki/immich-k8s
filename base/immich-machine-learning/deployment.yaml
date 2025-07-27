@@ -47,7 +47,8 @@ metadata:
   name: model-cache
   namespace: immich
 spec:
+  storageClassName: nfs-g9-enp4s0-rwo
   accessModes: ["ReadWriteOnce"]
   resources:
     requests:
-      storage: 5Gi
+      storage: 1Gi

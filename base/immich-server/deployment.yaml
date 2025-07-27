@@ -65,7 +65,8 @@ metadata:
   name: upload-pvc
   namespace: immich
 spec:
-  accessModes: ["ReadWriteOnce"]
+  storageClassName: nfs-g9-enp4s0-rwx
+  accessModes: ["ReadWriteMany"]
   resources:
     requests:
       storage: 50Gi
