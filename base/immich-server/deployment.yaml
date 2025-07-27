@@ -43,11 +43,11 @@ spec:
         envFrom:
         - configMapRef:
             name: immich-env
-      env:
-        - name: DB_HOST
-          value: "posgres"
-        - name: REDIS_HOST
-          value: "redis" 
+        env:
+          - name: DB_HOST
+            value: "posgres"
+          - name: REDIS_HOST
+            value: "redis" 
       volumes:
       - name: upload
         persistentVolumeClaim:
