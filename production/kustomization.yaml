@@ -4,7 +4,7 @@ namespace: nextcloud
 
 resources:
   - ../base
-  - avp-sercret.yaml
+  - avp-secret.yaml
   - configmap.yaml
 
 transformers:
