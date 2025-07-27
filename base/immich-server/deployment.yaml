@@ -1,0 +1,71 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: immich-server
+  namespace: immich
+spec:
+  selector:
+    app: immich-server
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 2283
+      targetPort: 2283
+      nodePort: 32283
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-server
+  namespace: immich
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: immich-server
+  template:
+    metadata:
+      labels:
+        app: immich-server
+    spec:
+      containers:
+      - name: immich-server
+        image: ghcr.io/immich-app/immich-server:release
+        ports:
+        - containerPort: 2283
+        volumeMounts:
+        - name: upload
+          mountPath: /usr/src/app/upload
+        - name: localtime
+          mountPath: /etc/localtime
+          readOnly: true
+        envFrom:
+        - configMapRef:
+            name: immich-env
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 2283
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 2283
+      volumes:
+      - name: upload
+        persistentVolumeClaim:
+          claimName: upload-pvc
+      - name: localtime
+        hostPath:
+          path: /etc/localtime
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: upload-pvc
+  namespace: immich
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 50Gi
