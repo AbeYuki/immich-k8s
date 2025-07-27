@@ -4,4 +4,5 @@ metadata:
   name: immich-env
   namespace: immich
 data:
-  REDIS_SOCKET: "redis://immich-redis:6379"
+  REDIS_HOST: "immich-redis"
+  REDIS_PORT: "6379"
