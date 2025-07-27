@@ -42,7 +42,7 @@ spec:
           readOnly: true
         envFrom:
         - configMapRef:
-            name: immich-env
+            name: server
         - secretRef:
             name: server
       volumes:
