@@ -6,3 +6,5 @@ metadata:
 data:
   UPLOAD_LOCATION: /mnt/upload
   DB_DATA_LOCATION: /mnt/db
+  DB_HOST: immich-postgres
+  REDIS_HOST: immich-redis
