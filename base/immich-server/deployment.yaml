@@ -40,6 +40,9 @@ spec:
         - name: localtime
           mountPath: /etc/localtime
           readOnly: true
+        env:
+          - name: TZ
+            value: Asia/Tokyo
         envFrom:
         - configMapRef:
             name: server

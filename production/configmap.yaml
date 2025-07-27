@@ -4,7 +4,6 @@ metadata:
   name: server
   namespace: immich
 data:
-  TZ: 
   REDIS_HOSTNAME: "immich-redis"
   REDIS_PORT: "6379"
   DB_HOSTNAME: "immich-postgres"
