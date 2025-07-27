@@ -43,14 +43,6 @@ spec:
         envFrom:
         - configMapRef:
             name: immich-env
-        readinessProbe:
-          httpGet:
-            path: /
-            port: 2283
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 2283
       volumes:
       - name: upload
         persistentVolumeClaim:
