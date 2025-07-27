@@ -6,3 +6,5 @@ metadata:
 data:
   REDIS_HOST: "immich-redis"
   REDIS_PORT: "6379"
+  DB_HOST: "immich-postgres"
+  DB_PORT: "5432"
