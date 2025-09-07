@@ -4,8 +4,9 @@ namespace: immich
 
 resources:
   - ../base
+  - avp-cm-config.yaml
   - avp-secret.yaml
-  - configmap.yaml
+  - cm-db.yaml
 
 transformers:
   - tf-label.yaml

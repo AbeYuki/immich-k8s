@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: immich-config
+  namespace: immich
+data:
+  immich.yaml: |
+    server:
+      externalDomain: <path:secret/data/immich#EXTERNAL_DOMAIN>
+    passwordLogin:
+      enabled: false
+    oauth:
+      enabled: true
+      issuerUrl: "https://accounts.google.com"
+      clientId: <path:secret/data/oauth_client/google/immich#client_id>
+      scope: "openid email profile"
+      signingAlgorithm: "RS256"
+      mobileOverrideEnabled: true
+      mobileRedirectUri: <path:secret/data/oauth_client/google/immich#client_id>/api/oauth/mobile-redirect

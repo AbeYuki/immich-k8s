@@ -40,14 +40,24 @@ spec:
         - name: localtime
           mountPath: /etc/localtime
           readOnly: true
+        - name: immich-config
+          mountPath: /config
+          readOnly: true
         env:
           - name: TZ
             value: Asia/Tokyo
+          - name: IMMICH_CONFIG_FILE
+            value: /config/immich.yaml
         envFrom:
         - configMapRef:
             name: server
         - secretRef:
             name: server
+        - name: IMMICH_OAUTH_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: immich-oauth
+              key: clientSecret
       volumes:
       - name: upload
         persistentVolumeClaim:
@@ -55,6 +65,13 @@ spec:
       - name: localtime
         hostPath:
           path: /etc/localtime
+      - name: immich-config
+        configMap:
+          name: immich-config
+          items:
+            - key: immich.yaml
+              path: immich.yaml
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
