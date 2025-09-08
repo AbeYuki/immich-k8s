@@ -13,7 +13,8 @@ data:
       enabled: true
       issuerUrl: "https://accounts.google.com"
       clientId: <path:secret/data/oauth_client/google/immich#client_id>
+      clientSecret: <path:secret/data/oauth_client/google/immich#client_secret>
       scope: "openid email profile"
       signingAlgorithm: "RS256"
       mobileOverrideEnabled: true
-      mobileRedirectUri: <path:secret/data/oauth_client/google/immich#client_id>/api/oauth/mobile-redirect
+      mobileRedirectUri: <path:secret/data/immich#EXTERNAL_DOMAIN>/api/oauth/mobile-redirect
