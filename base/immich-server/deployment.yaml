@@ -48,16 +48,16 @@ spec:
             value: Asia/Tokyo
           - name: IMMICH_CONFIG_FILE
             value: /config/immich.yaml
+          - name: IMMICH_OAUTH_CLIENT_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: immich-oauth
+                key: clientSecret
         envFrom:
-        - configMapRef:
-            name: server
-        - secretRef:
-            name: server
-        - name: IMMICH_OAUTH_CLIENT_SECRET
-          valueFrom:
-            secretKeyRef:
-              name: immich-oauth
-              key: clientSecret
+          - configMapRef:
+              name: server
+          - secretRef:
+              name: server
       volumes:
       - name: upload
         persistentVolumeClaim:
