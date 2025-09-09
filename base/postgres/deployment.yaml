@@ -50,7 +50,7 @@ metadata:
   name: db-data-pvc
   namespace: immich
 spec:
-  storageClassName: nfs-g9-enp4s0-rwo
+  storageClassName: longhorn
   accessModes: ["ReadWriteOnce"]
   resources:
     requests:
