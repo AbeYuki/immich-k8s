@@ -33,35 +33,44 @@ spec:
       - name: immich-server
         image: ghcr.io/immich-app/immich-server:commit-adceb26ab2938c53c4a0784e21c350e5ce75df7c
         ports:
-        - containerPort: 2283
+          - containerPort: 2283
         volumeMounts:
-        - name: upload
-          mountPath: /usr/src/app/upload
-        - name: localtime
-          mountPath: /etc/localtime
-          readOnly: true
-        - name: immich-config
-          mountPath: /config
-          readOnly: true
+          - name: immich-data
+            mountPath: /usr/src/app/upload
+            subPath: upload
+          - name: immich-data
+            mountPath: /usr/src/app/thumbs
+            subPath: thumbs
+          - name: immich-data
+            mountPath: /usr/src/app/encoded-video
+            subPath: encoded-video
+          - name: immich-data
+            mountPath: /usr/src/app/library
+            subPath: library
+          - name: immich-data
+            mountPath: /usr/src/app/profile
+            subPath: profile
+          - name: immich-data
+            mountPath: /usr/src/app/backups
+            subPath: backups
+          - name: localtime
+            mountPath: /etc/localtime
+            readOnly: true
+          - name: immich-config
+            mountPath: /config
+            readOnly: true
         env:
           - name: TZ
             value: Asia/Tokyo
           - name: IMMICH_CONFIG_FILE
             value: /config/immich.yaml
-          - name: IMMICH_OAUTH_CLIENT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: immich-oauth
-                key: clientSecret
         envFrom:
-          - configMapRef:
-              name: server
-          - secretRef:
-              name: server
+        - configMapRef: { name: server }
+        - secretRef:    { name: server }
       volumes:
-      - name: upload
+      - name: immich-data
         persistentVolumeClaim:
-          claimName: upload-pvc
+          claimName: immich-data
       - name: localtime
         hostPath:
           path: /etc/localtime
@@ -71,13 +80,11 @@ spec:
           items:
             - key: immich.yaml
               path: immich.yaml
-
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: upload-pvc
-  namespace: immich
+  name: immich-data
 spec:
   storageClassName: nfs-g9-enp4s0-rwx
   accessModes: ["ReadWriteMany"]

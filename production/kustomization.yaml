@@ -6,7 +6,7 @@ resources:
   - ../base
   - avp-cm-config.yaml
   - avp-secret.yaml
-  - cm-db.yaml
+  - cm-server.yaml
 
 transformers:
   - tf-label.yaml

@@ -18,3 +18,4 @@ data:
       signingAlgorithm: "RS256"
       mobileOverrideEnabled: true
       mobileRedirectUri: <path:secret/data/immich#EXTERNAL_DOMAIN>/api/oauth/mobile-redirect
+      autoRegister: false
