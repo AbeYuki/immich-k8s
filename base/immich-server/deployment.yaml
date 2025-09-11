@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: immich-server
-        image: ghcr.io/immich-app/immich-server:commit-adceb26ab2938c53c4a0784e21c350e5ce75df7c
+        image: ghcr.io/immich-app/immich-server:v1.141.1
         resources:
           requests: { memory: 256Mi, cpu: "0.5" }
           limits:   { memory: 1024Mi, cpu: "1" }
