@@ -1,5 +1,5 @@
 resources:
-#  - immich-machine-learning/deployment.yaml
+  - immich-machine-learning/deployment.yaml
   - immich-server/deployment.yaml
   - postgres/deployment.yaml
   - redis/deployment.yaml
