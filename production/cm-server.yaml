@@ -8,3 +8,4 @@ data:
   DB_HOSTNAME: "immich-postgres"
   UPLOAD_LOCATION: "./library"
   DB_DATA_LOCATION: "./postgres"
+  IMMICH_LOG_LEVEL: "verbose"
