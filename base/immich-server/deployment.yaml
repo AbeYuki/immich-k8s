@@ -20,7 +20,7 @@ metadata:
   name: immich-server
   namespace: immich
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: immich-server
@@ -34,7 +34,7 @@ spec:
         image: ghcr.io/immich-app/immich-server:v1.141.1
         resources:
           requests: { memory: 256Mi, cpu: "0.5" }
-          limits:   { memory: 1024Mi, cpu: "1" }
+          limits:   { memory: 1024Mi, cpu: "1.5" }
         ports:
           - containerPort: 2283
         volumeMounts:
