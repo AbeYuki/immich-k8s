@@ -18,7 +18,7 @@ metadata:
   name: immich-ml
   namespace: immich
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: immich-ml
