@@ -7,7 +7,7 @@ resources:
   - avp-cm-config.yaml
   - avp-secret.yaml
   - cm-server.yaml
-  - hpa.yaml
+#  - hpa.yaml
 
 configMapGenerator:
   - name: ml-config
