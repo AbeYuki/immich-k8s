@@ -8,6 +8,11 @@ resources:
   - avp-secret.yaml
   - cm-server.yaml
 
+configMapGenerator:
+  - name: ml-config
+    files:
+      - cm-ml-config.yaml
+
 transformers:
   - tf-label.yaml
   - tf-sp.yaml
