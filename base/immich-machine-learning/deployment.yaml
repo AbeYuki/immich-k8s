@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: immich-machine-learning
-        image: ghcr.io/immich-app/immich-machine-learning:v1.143.1
+        image: ghcr.io/immich-app/immich-machine-learning:v2.1.0
         resources:
           requests: { memory: 2048Mi, cpu: "2" }
           limits:   { memory: 2048Mi, cpu: "2.2" }
